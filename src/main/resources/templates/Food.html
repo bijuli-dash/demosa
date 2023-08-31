@@ -10,7 +10,7 @@
 <body>
 
 <h2>Input Data</h2>
-<form action="/Updated" object="person" method="post">
+<form action="/Update" object="person" method="post">
 
     <input type="text" name="name" placeholder="Name" /><br />
     <input type="number" name="kcal" placeholder="Kcal(in g)" /><br />
@@ -46,7 +46,7 @@
 </table>
 <script>
     // Fetch data from Spring Boot backend using AJAX
-    fetch('/FoodSection') // Update with your actual endpoint
+    fetch('/update') // Update with your actual endpoint
         .then(response => response.json())
         .then(data => populateTable(data))
         .catch(error => console.error('Error fetching data:', error));

@@ -28,6 +28,8 @@ public class registercontroller {
         return "redirect:/Homepage";
     }
 
+
+
 //    @GetMapping("/Homepage")
 //    public String bmi(User user)
 //    return userservices.bmicalculation(User id);

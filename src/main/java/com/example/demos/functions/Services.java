@@ -14,7 +14,6 @@ public class Services implements Servicesimpl {
 @Autowired
 private userrepository registereduser; //repository
 
-
     @Override
 public void saveuserinfo(User user){    //method to save userinfo
     registereduser.save(user);

@@ -13,14 +13,20 @@ public class FoodController {
     @Autowired
     private FoodUpdateService foodUpdateServiceservices;   //service
 
-    @RequestMapping("/Updated")           //saves user data in  database
-    public String updateFoodtable(Food food) {
-        System.out.print("saved");
-        foodUpdateServiceservices.savefoodinfo(food);     //calls service method to save userinfo
+
+    @RequestMapping("/foodsection")
+    public String foodsectionpage()  /*method handler*/ {
         return "Food";
     }
 
-    @GetMapping("/FoodSection")
+    @RequestMapping("/update")           //saves user data in  database
+    public String updateFoodtable(Food food) {
+        System.out.print("saved");
+        foodUpdateServiceservices.savefoodinfo(food);     //calls service method to save userinfo
+        return "redirect:/Food?Successfullyinserted?";
+    }
+
+    @GetMapping("/update")
     public String displayfood(Model model){
         List<Food> foodList = foodUpdateServiceservices.allfood();
         model.addAttribute("foodlist", foodList); // Create a new Person object for the form
