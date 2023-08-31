@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/food.css">
+    <title>Table with Buttons</title>
+</head>
+<body>
+
+<h2>Input Data</h2>
+<form action="/Updated" object="person" method="post">
+
+    <input type="text" name="name" placeholder="Name" /><br />
+    <input type="number" name="kcal" placeholder="Kcal(in g)" /><br />
+    <input type="number" name="protein" placeholder="protein(in g)" /><br />
+    <input type="number" name="carb" placeholder="Carb(in g)" /><br />
+    <input type="number" name="sugar" placeholder="Sugar(in g)" /><br />
+    <input type="number" name="fat" placeholder="Fat(in g)" /><br />
+    <input type="number" name="fibre" placeholder="Fibre(in g)" /><br />
+    <input type="number" name="price" placeholder="Price(/piece/100g)" /><br />
+
+    <button type="submit">Save</button>
+</form>
+
+<h1>Table with Buttons</h1>
+<table id="data-table">
+    <thead>
+    <tr>
+        <th>F_ID</th>
+        <th>Name</th>
+        <th>Kcal(Energy)</th>
+        <th>Protein</th>
+        <th>Carb</th>
+        <th>Sugar</th>
+        <th>Fat</th>
+        <th>Fibre</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody id="food-table-body">
+
+    <!-- Add more rows as needed -->
+    </tbody>
+</table>
+<script>
+    // Fetch data from Spring Boot backend using AJAX
+    fetch('/FoodSection') // Update with your actual endpoint
+        .then(response => response.json())
+        .then(data => populateTable(data))
+        .catch(error => console.error('Error fetching data:', error));
+
+    // Function to populate the table with fetched food data
+    function populateTable(data) {
+        const tableBody = document.getElementById("food-table-body");
+        tableBody.innerHTML = ""; // Clear existing rows
+
+        data.forEach(item => {                 //here Item is a food object
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <!-- Add table cells for other food details -->
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+</script>
+
+
+
+</body>
+
+</html>
+
+
