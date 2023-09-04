@@ -1,78 +1,87 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>FITRAC</title>
-    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
-    <link rel="stylesheet" th:href="@{/registration.css}">
-</head>
-<body>
-<div class="regs">
-    <form method="POST" th:action="@{/registration}" th:object="${User}">
-        <h1>Register</h1>
-        <div class="box">
-            <input type="text" id="N" placeholder="Choose a Username" th:field="${username}" required autofocus> <br>
-        </div>
-        <div class="box">
-            <input type="number" id="age" placeholder="Age" th:field="${age}" required autofocus><br>
-        </div>
-        <div class="box">
-            <input type="password" id="PW" placeholder="Password" th:field="${password}" minlength="8" required
-                   autofocus><br>
-        </div>
-        <div class="box">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">  &lt;!&ndash;xmlns:th="http://www.w3.org/1999/xhtml"&ndash;&gt;-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1.0">-->
+<!--    <title>FITRAC</title>-->
+<!--    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet" media="screen" />-->
+<!--    <link rel="stylesheet" th:href="@{registration.css}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="regs">-->
+<!--    &lt;!&ndash;/*@thymesVar id="User" type=""*/&ndash;&gt;-->
+<!--    <form method="POST" th:action="@{/registration}" th:object="${User}">-->
+<!--        <h1>Register</h1>-->
+<!--        <div class="box">-->
+<!--            &lt;!&ndash;/*@thymesVar id="username" type="ch"*/&ndash;&gt;-->
+<!--            <input type="text" id="N" placeholder="Choose a Username" th:field="${username}" required autofocus> <br>-->
+<!--        </div>-->
+<!--        <div class="box">-->
+<!--            &lt;!&ndash;/*@thymesVar id="age" type="int"*/&ndash;&gt;-->
+<!--            <input type="number" id="age" placeholder="Age" th:field="${age}" required autofocus><br>-->
+<!--        </div>-->
+<!--        <div class="box">-->
+<!--            &lt;!&ndash;/*@thymesVar id="password" type="ch"*/&ndash;&gt;-->
+<!--            <input type="password" id="PW" placeholder="Password" th:field="${password}" minlength="8" required-->
+<!--                   autofocus><br>-->
+<!--        </div>-->
+<!--        <div class="box">-->
 
-            <input type="number" id="height" placeholder="Height in m" th:field="${height}" required autofocus><br>
-        </div>
-        <div class="box">
-            <input type="number" id="weight" placeholder="Weight" th:field="${weight}" required autofocus><br>
-        </div>
-        <div class="rad">
-            <div class="sel">
-                <select id="gender" th:field="${gender}" required autofocus>
-                    <option value="Gender">Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                </select><br>
-            </div>
-        </div>
-        <div class="rad">
-            <div class="sel">
+<!--            &lt;!&ndash;/*@thymesVar id="height" type="int"*/&ndash;&gt;-->
+<!--            <input type="number" id="height" placeholder="Height in m" th:field="${height}" required autofocus><br>-->
+<!--        </div>-->
+<!--        <div class="box">-->
+<!--            &lt;!&ndash;/*@thymesVar id="weight" type="int"*/&ndash;&gt;-->
+<!--            <input type="number" id="weight" placeholder="Weight" th:field="${weight}" required autofocus><br>-->
+<!--        </div>-->
+<!--        <div class="rad">-->
+<!--            <div class="sel">-->
+<!--                &lt;!&ndash;/*@thymesVar id="gender" type="ch"*/&ndash;&gt;-->
+<!--                <select id="gender" th:field="${gender}" required autofocus>-->
+<!--                    <option value="Gender">Gender</option>-->
+<!--                    <option value="Male">Male</option>-->
+<!--                    <option value="Female">Female</option>-->
+<!--                </select><br>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="rad">-->
+<!--            <div class="sel">-->
 
-                <select id="goal" th:field="${goal}">
-                    <option value="Goal">Goal</option>
-                    <option value="Male">Fitness</option>
-                    <option value="WG">Weight Gain</option>
-                    <option value="WL">Weight Loss</option>
-                    <option value="BR">Body Recomposition</option>
-                </select><br>
-            </div>
-        </div>
-        <div class="rad">
-            <div class="sel">
+<!--                &lt;!&ndash;/*@thymesVar id="goal" type="ch"*/&ndash;&gt;-->
+<!--                <select id="goal" th:field="${goal}">-->
+<!--                    <option value="Goal">Goal</option>-->
+<!--                    <option value="Male">Fitness</option>-->
+<!--                    <option value="WG">Weight Gain</option>-->
+<!--                    <option value="WL">Weight Loss</option>-->
+<!--                    <option value="BR">Body Recomposition</option>-->
+<!--                </select><br>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="rad">-->
+<!--            <div class="sel">-->
 
-                <select id="Healthconditions" th:field="${healthc}">
-                    <option value="conditions">Health Conditions</option>
-                    <option value="CD">Cardiovascular Diseases</option>
-                    <option value="Diabetes">Diabetes</option>
-                    <option value="HT">Hypertension</option>
-                    <option value="GD">Gastrointestinal Disorder</option>
-                    <option value="CD">Celiac Diseases</option>
-                    <option value="CKD">Chronic Kidney Disease</option>
-                    <option value="more">more..</option>
-                </select><br>
-            </div>
-        </div>
-        <div class="regbtn">
-            <button id="reg" type="submit">Register</button>
-            <a th:href="@{user/Homepage.html}">register.</a>
-        </div>
-    </form>
-</div>
-</body>
-</html>
+<!--                &lt;!&ndash;/*@thymesVar id="healthc" type="ch"*/&ndash;&gt;-->
+<!--                <select id="Healthconditions" th:field="${healthc}">-->
+<!--                    <option value="conditions">Health Conditions</option>-->
+<!--                    <option value="CD">Cardiovascular Diseases</option>-->
+<!--                    <option value="Diabetes">Diabetes</option>-->
+<!--                    <option value="HT">Hypertension</option>-->
+<!--                    <option value="GD">Gastrointestinal Disorder</option>-->
+<!--                    <option value="CD">Celiac Diseases</option>-->
+<!--                    <option value="CKD">Chronic Kidney Disease</option>-->
+<!--                    <option value="more">more..</option>-->
+<!--                </select><br>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="regbtn">-->
+<!--            <button id="reg" type="submit">Register</button>-->
+<!--            <a th:href="@{user/Homepage.html}">register.</a>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
 
 
 
@@ -157,17 +166,17 @@
 
 
 
-  <!-- <label for="bday">DATE-OF-BIRTH :</label>
-                <input type="date" id = "bday" required> <br> -->
+<!--  &lt;!&ndash; <label for="bday">DATE-OF-BIRTH :</label>-->
+<!--                <input type="date" id = "bday" required> <br> &ndash;&gt;-->
 
-                <!--lets save the DOB method of determining age until further progress-->
+<!--                &lt;!&ndash;lets save the DOB method of determining age until further progress&ndash;&gt;-->
 
 
 
 
- <!-- <div class="prenext">  
-                    <a href="FT.html" class="previous">&laquo; Previous -</a>
-                    <a href="#" class="next">- Next  &raquo;</a>
-                </div> -->
+<!-- &lt;!&ndash; <div class="prenext">-->
+<!--                    <a href="FT.html" class="previous">&laquo; Previous -</a>-->
+<!--                    <a href="#" class="next">- Next  &raquo;</a>-->
+<!--                </div> &ndash;&gt;-->
 
-                   <!-- next and previous button-->
+<!--                   &lt;!&ndash; next and previous button&ndash;&gt;-->

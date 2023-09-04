@@ -21,6 +21,6 @@ public class FoodUpdateService implements FoodUpdateServiceimpl {
     @Override
     public List<Food> allfood(){            //GETS ALL THE USER INPUT
         return updfood.findAll();
-    }
+    }  // not in use currently
 
 }

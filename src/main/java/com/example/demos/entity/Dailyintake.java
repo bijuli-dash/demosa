@@ -1,15 +1,11 @@
-    package com.example.demos.entity;
+package com.example.demos.entity;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 
-    import jakarta.persistence.Entity;
-    import jakarta.persistence.GeneratedValue;
-    import jakarta.persistence.GenerationType;
-    import jakarta.persistence.Id;
-    import lombok.Getter;
-
-    @Getter
-    @Entity
-    public class Food {
+public class Dailyintake {
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE)
         private long id;
@@ -22,7 +18,7 @@
         private int fibre;
         private int price;
 
-        public Food() {
+        public Dailyintake() {
 
         }
 
@@ -62,7 +58,7 @@
             this.price = price;
         }
 
-        public Food(String name, int kcal, int protein, int carb, int sugar, int fat, int fibre, int price) {
+        public Dailyintake(String name, int kcal, int protein, int carb, int sugar, int fat, int fibre, int price) {
             this.name = name;
             this.kcal = kcal;
             this.protein = protein;
@@ -89,3 +85,5 @@
                     '}' ;
         }
     }
+
+

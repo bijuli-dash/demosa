@@ -59,106 +59,18 @@
                 <th>AMOUNT</th>
             </tr>
             </thead>
-            <tr>
-                <td>1</td>
-                <td>chicken</td>
-                <td>157 </td>
-                <td>30 gm</td>
-                <td>0 gm</td>
-                <td>0 gm</td>
-                <td>4 gm</td>
-                <td>0 gm</td>
-                <td>65 gm</td>
-                <td>0.9 gm</td>
-                <td>35 mg</td>
-
-                <td>30-40 NRS per 100gm</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>chicken</td>
-                <td>157 </td>
-                <td>30 gm</td>
-                <td>0 gm</td>
-                <td>0 gm</td>
-                <td>4 gm</td>
-                <td>0 gm</td>
-                <td>65 gm</td>
-                <td>35 mg</td>
-                <td>0.9 gm</td>
-                <td>30-40 NRS per 100gm</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>chicken</td>
-                <td>157 </td>
-                <td>30 gm</td>
-                <td>0 gm</td>
-                <td>0 gm</td>
-                <td>4 gm</td>
-                <td>0 gm</td>
-                <td>65 gm</td>
-                <td>35 mg</td>
-                <td>0.9 gm</td>
-                <td>30-40 NRS per 100gm</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>chicken</td>
-                <td>157 </td>
-                <td>30 gm</td>
-                <td>0 gm</td>
-                <td>0 gm</td>
-                <td>4 gm</td>
-                <td>0 gm</td>
-                <td>65 gm</td>
-                <td>35 mg</td>
-                <td>0.9 gm</td>
-                <td>30-40 NRS per 100gm</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>chicken</td>
-                <td>157 </td>
-                <td>30 gm</td>
-                <td>0 gm</td>
-                <td>0 gm</td>
-                <td>4 gm</td>
-                <td>0 gm</td>
-                <td>65 gm</td>
-                <td>35 mg</td>
-                <td>0.9 gm</td>
-                <td>30-40 NRS per 100gm</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>chicken</td>
-                <td>157 </td>
-                <td>30 gm</td>
-                <td>0 gm</td>
-                <td>0 gm</td>
-                <td>4 gm</td>
-                <td>0 gm</td>
-                <td>65 gm</td>
-                <td>35 mg</td>
-                <td>0.9 gm</td>
-                <td>30-40 NRS per 100gm</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>chicken</td>
-                <td>157 </td>
-                <td>30 gm</td>
-                <td>0 gm</td>
-                <td>0 gm</td>
-                <td>4 gm</td>
-                <td>0 gm</td>
-                <td>65 gm</td>
-                <td>35 mg</td>
-                <td>0.9 gm</td>
-                <td>30-40 NRS per 100gm</td>
-            </tr>
-
+            <tbody>
+                 <tr th:if="${allFood.empty}">NO FOOD</tr>
+                 <tr th:each="food : ${allFood}">
+                 <td th:text="${food.id}"></td>
+                 <td th:text="${food.name}"></td>
+                 <td th:text="${food.kcal}"></td>
+                 <td th:text="${food.protein}"></td>
+                 <td th:text="${food.carb}"></td>
+                 <td th:text="${food.fat}"></td>
+                 <td th:text="${food.fibre}"></td>
+                 <td th:text="${food.price}"></td>
+            </tbody>
 
             </tbody>
         </table>
